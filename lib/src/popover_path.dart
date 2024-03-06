@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:flutter/painting.dart';
 
 import 'popover_direction.dart';
@@ -15,7 +13,6 @@ final class PopoverPath {
     Rect bodyRect,
   ) {
     final path = Path();
-    log('PopoverPath.draw: direction: $direction, arrowRect: $arrowRect, bodyRect: $bodyRect');
 
     if (arrowRect != null) {
       if (direction == PopoverDirection.top) {

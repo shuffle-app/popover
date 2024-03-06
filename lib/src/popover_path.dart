@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/painting.dart';
 
 import 'popover_direction.dart';
@@ -13,6 +15,7 @@ final class PopoverPath {
     Rect bodyRect,
   ) {
     final path = Path();
+    log('PopoverPath.draw: direction: $direction, arrowRect: $arrowRect, bodyRect: $bodyRect');
 
     if (arrowRect != null) {
       if (direction == PopoverDirection.top) {
@@ -35,7 +38,12 @@ final class PopoverPath {
   void _drawBottomElement(Path path, Rect arrowRect, Rect bodyRect) {
     path.moveTo(arrowRect.left, arrowRect.bottom);
     path.lineTo(arrowRect.left + arrowRect.width / 2, arrowRect.top);
-    path.lineTo(arrowRect.right, arrowRect.bottom);
+    final radiusOverflow = ((bodyRect.width - radius) - (arrowRect.left + arrowRect.width)).abs();
+    if (radius > radiusOverflow) {
+      path.lineTo(arrowRect.right + (radiusOverflow / 2), arrowRect.bottom + radiusOverflow);
+    } else {
+      path.lineTo(arrowRect.right, arrowRect.bottom);
+    }
 
     path.lineTo(bodyRect.right - radius, bodyRect.top);
     path.conicTo(

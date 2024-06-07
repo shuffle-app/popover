@@ -36,14 +36,11 @@ final class PopoverPath {
     path.moveTo(arrowRect.left, arrowRect.bottom);
     path.lineTo(arrowRect.left + arrowRect.width / 2, arrowRect.top);
     final radiusOverflow = ((bodyRect.width - radius) - (arrowRect.left + arrowRect.width)).abs();
-    final overflowTooBig = radius > radiusOverflow;
+    final overflowTooBig = radius < radiusOverflow;
     if (overflowTooBig) {
       path.lineTo(arrowRect.right + radiusOverflow, arrowRect.bottom + (radius / 2));
     } else {
       path.lineTo(arrowRect.right, arrowRect.bottom);
-    }
-
-    if (!overflowTooBig) {
       path.lineTo(bodyRect.right - radius, bodyRect.top);
       path.conicTo(
         bodyRect.right,

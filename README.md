@@ -1,5 +1,3 @@
-[![Stand With Ukraine](https://raw.githubusercontent.com/vshymanskyy/StandWithUkraine/main/banner-direct.svg)](https://vshymanskyy.github.io/StandWithUkraine)
-
 <h1 align="center">Popover</h1>
 
 <p align="center">
@@ -65,7 +63,7 @@ Source: [Human Interface Guidelines.
 
 ```yaml
 dependencies:
-  popover: ^0.3.0
+  popover: ^0.3.0+1
 ```
 
 ## Example

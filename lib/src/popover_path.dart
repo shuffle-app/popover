@@ -35,21 +35,16 @@ final class PopoverPath {
   void _drawBottomElement(Path path, Rect arrowRect, Rect bodyRect) {
     path.moveTo(arrowRect.left, arrowRect.bottom);
     path.lineTo(arrowRect.left + arrowRect.width / 2, arrowRect.top);
-    final radiusOverflow = ((bodyRect.width - radius) - (arrowRect.left + arrowRect.width)).abs();
-    final overflowTooBig = radius < radiusOverflow;
-    if (overflowTooBig) {
-      path.lineTo(arrowRect.right + radiusOverflow, arrowRect.bottom + (radius / 2));
-    } else {
-      path.lineTo(arrowRect.right, arrowRect.bottom);
-      path.lineTo(bodyRect.right - radius, bodyRect.top);
-      path.conicTo(
-        bodyRect.right,
-        bodyRect.top,
-        bodyRect.right,
-        bodyRect.top + radius,
-        1,
-      );
-    }
+    path.lineTo(arrowRect.right, arrowRect.bottom);
+
+    path.lineTo(bodyRect.right - radius, bodyRect.top);
+    path.conicTo(
+      bodyRect.right,
+      bodyRect.top,
+      bodyRect.right,
+      bodyRect.top + radius,
+      1,
+    );
 
     path.lineTo(bodyRect.right, bodyRect.bottom - radius);
     path.conicTo(

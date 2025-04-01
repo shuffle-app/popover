@@ -38,7 +38,7 @@ final class PopoverPath {
     final radiusOverflowRight = ((bodyRect.width - radius) - (arrowRect.left - arrowRect.width)).abs();
     final radiusOverflowLeft = ((bodyRect.width - radius) - (arrowRect.right - arrowRect.width)).abs();
 
-    final overflowTooBigRight = radius >= radiusOverflowRight / 2;
+    final overflowTooBigRight = radius >= radiusOverflowRight / 1.9;
     final overflowTooBigLeft = radius >= radiusOverflowLeft / 14;
 
     if (overflowTooBigLeft) {
@@ -92,6 +92,8 @@ final class PopoverPath {
   }
 
   void _drawLeftElement(Path path, Rect arrowRect, Rect bodyRect) {
+    log('abob _drawLeftElement here ');
+
     path.moveTo(arrowRect.left, arrowRect.top);
     path.lineTo(arrowRect.right, arrowRect.top + arrowRect.height / 2);
     path.lineTo(arrowRect.left, arrowRect.bottom);
@@ -134,6 +136,8 @@ final class PopoverPath {
   }
 
   void _drawRightElement(Path path, Rect arrowRect, Rect bodyRect) {
+    log('abob _drawRightElement here ');
+
     path.moveTo(arrowRect.right, arrowRect.top);
     path.lineTo(arrowRect.left, arrowRect.top + arrowRect.height / 2);
     path.lineTo(arrowRect.right, arrowRect.bottom);
@@ -176,6 +180,8 @@ final class PopoverPath {
   }
 
   void _drawTopElement(Path path, Rect arrowRect, Rect bodyRect) {
+    log('abob _drawTopElement here ');
+
     path.moveTo(arrowRect.left, arrowRect.top);
     path.lineTo(arrowRect.left + arrowRect.width / 2, arrowRect.bottom);
     path.lineTo(arrowRect.right, arrowRect.top);

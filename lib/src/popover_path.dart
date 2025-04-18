@@ -38,7 +38,7 @@ final class PopoverPath {
     final radiusOverflowRight = ((bodyRect.width - radius) - (arrowRect.left - arrowRect.width)).abs();
     final radiusOverflowLeft = ((bodyRect.width - radius) - (arrowRect.right - arrowRect.width)).abs();
 
-    final overflowTooBigRight = radius >= radiusOverflowRight / 1.9;
+    final overflowTooBigRight = radius >= radiusOverflowRight / 1.6;
     final overflowTooBigLeft = radius >= radiusOverflowLeft / 14;
 
     if (overflowTooBigLeft) {
